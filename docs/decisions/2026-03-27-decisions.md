@@ -20,3 +20,25 @@
 **Outcome (to fill later):** _pending_
 
 ---
+
+## [21:40] Django Groups vs. campo role vs. modelo Role custom
+
+**Context:** Definiendo cómo asignar roles admin (ventas, envíos, producción, admin) a los usuarios del panel de Mike Shirts. El equipo es pequeño — una persona puede cubrir múltiples roles. Los roles determinan qué secciones del admin panel ve cada usuario.
+
+**Paths considered:**
+- **A — Django Groups:** Nativo del framework. Un usuario pertenece a N groups. Permisos asignados por group. `user.groups.filter(name='ventas')` para verificar. Admin UI incluida. La comunidad lo mantiene y testea.
+- **B — Campo `role` CharField con choices:** Simple de implementar (`role = CharField(choices=ROLES)`). Pero: un usuario solo puede tener un rol. Agregar roles requiere migración. No tiene sistema de permisos granulares built-in.
+- **C — Modelo Role custom (ManyToMany):** Máximo control. Pero reinventa lo que Django Groups ya resuelve — misma tabla ManyToMany, sin la integración con el admin ni el sistema de permisos.
+
+**Chosen:** A — Django Groups
+
+**Rationale:** Groups es parte del framework con trabajo hecho por la comunidad — se extiende a más funciones sin tocar el modelo User. El campo role CharField agregaría un posible fallo futuro: cada rol nuevo requiere migración y un solo rol por usuario no refleja la realidad del equipo pequeño. El modelo Role custom reimplementa lo que Groups ya hace sin beneficio adicional.
+
+**Expected consequences:**
+- **Más fácil:** agregar roles nuevos sin migraciones (solo crear Group en admin/fixture), múltiples roles por usuario, permisos granulares por group, `has_perm()` funciona out of the box
+- **Más difícil:** los Groups no tienen metadata custom (descripción, color, ícono) — si se necesita eso, habrá que crear un modelo GroupProfile auxiliar
+- **Riesgo:** si los Groups iniciales no se crean en un fixture/migration, el primer deploy puede tener usuarios sin roles
+
+**Outcome (to fill later):** _pending_
+
+---
