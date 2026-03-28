@@ -53,7 +53,7 @@ Un cliente puede encontrar una playera, pagarla con Mercado Pago y recibir un ti
 - **Tech stack**: Django REST Framework (backend) + React (frontend) + SQLite (dev local)
 - **Pagos**: Mercado Pago — único procesador, solo MXN
 - **Geografía**: Solo envíos dentro de México
-- **Auth**: OAuth 2.0 para clientes (Google como mínimo)
+- **Auth**: OAuth 2.0 para clientes (Google + Facebook + Instagram + email fallback)
 - **Almacenamiento**: Imágenes de productos necesitan hosting (definir: local vs S3 vs Cloudinary)
 - **Base de datos dual**: una para la app principal (inventario, pedidos, usuarios), otra para analítica (visitas, cookies, conversiones)
 

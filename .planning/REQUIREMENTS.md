@@ -5,6 +5,8 @@
 ### A. Autenticación y Usuarios
 
 - [ ] **AUTH-01** — Registro/login con Google OAuth 2.0
+- [ ] **AUTH-01b** — Registro/login con Facebook OAuth 2.0 (Meta)
+- [ ] **AUTH-01c** — Registro/login con Instagram OAuth 2.0 (Meta — via Facebook Login for Business)
 - [ ] **AUTH-02** — Registro/login con email y password (fallback)
 - [ ] **AUTH-03** — Perfil completo: nombre, email, teléfono, dirección(es) de envío, RFC opcional
 - [ ] **AUTH-04** — Flujo "completar perfil" obligatorio antes del primer checkout
