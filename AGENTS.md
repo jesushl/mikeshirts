@@ -106,9 +106,9 @@ This project uses **learnship**. Key facts:
 
 ## Current Phase
 
-**Milestone:** v1.0 — Tienda Online Mike Shirts
+**Milestone:** v1.0 — Tienda Online Mike Shirts (**cerrado** 2026-03-28, `complete-milestone`)
 **Phase:** All 8 phases complete — full-stack done
-**Status:** v1.0 complete — Django API + React SPA, ready for QA/deploy
+**Status:** Hito v1.0 cerrado en `.planning/`; siguiente: QA staging, deploy, backlog post-v1 en PROJECT.md
 **Last updated:** 2026-03-28
 
 ---

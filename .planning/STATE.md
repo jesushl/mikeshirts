@@ -5,14 +5,25 @@
 See: .planning/PROJECT.md (updated 2026-03-27)
 
 **Core value:** Un cliente puede encontrar una playera, pagarla con Mercado Pago y recibir un ticket de venta y envío — sin fricción, desde cualquier dispositivo, en México.
-**Current focus:** All phases complete — v1.0 ready
+**Current focus:** Milestone v1.0 **cerrado** — siguiente: QA en staging, deploy, iteración post-v1
+
+## Milestone v1.0 — COMPLETED
+
+**Closed:** 2026-03-28  
+**Ceremony:** `complete-milestone`
+
+**Verification (ejecutado en cierre de hito):**
+- `python manage.py check` — OK (sin tests automatizados en repo: 0 tests)
+- `npx tsc --noEmit` + `npx vite build` (frontend) — OK
+
+**Entregable:** API Django + SPA React alineadas con ROADMAP fases 1–8; listo para QA manual end-to-end y despliegue.
 
 ## Current Position
 
 Phase: 8 of 8 (Checkout, Pedidos, Admin Panel & Polish) — COMPLETE
 Plan: 08-01, 08-02, 08-03, 08-04 executed (4 waves)
-Status: **Phase 8 DONE**. All 4 waves executed. Full frontend SPA complete.
-Last activity: 2026-03-28 — Phase 8 executed (all 27 tasks)
+Status: **MILESTONE v1.0 COMPLETE**. Hito cerrado en planificación.
+Last activity: 2026-03-28 — `complete-milestone` (verificación + artefactos)
 
 Progress: [██████████] 100% (backend) / [██████████] 100% (frontend)
 
@@ -65,5 +76,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-28
-Stopped at: Phase 8 COMPLETE. All 8 phases executed. v1.0 Tienda Online Mike Shirts ready.
-Resume file: N/A — all phases done. Next: QA, deploy, or iteration.
+Stopped at: **Milestone v1.0 cerrado** (`complete-milestone`). Próximo trabajo fuera del hito: QA staging, pipeline de deploy, media en S3/Cloudinary, tests, SMTP prod.
+Resume file: N/A — milestone closed.

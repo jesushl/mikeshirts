@@ -10,26 +10,22 @@ Un cliente puede encontrar una playera, pagarla con Mercado Pago y recibir un ti
 
 ## Requirements
 
-### Validated
+### Validated (v1.0 — 2026-03-28)
 
-(None yet — ship to validate)
+Scope del hito v1.0 entregado en código (API + SPA). Validación de negocio en producción pendiente de deploy y tráfico real.
 
-### Active
+- Catálogo con variantes, stock, carrito, checkout Mercado Pago, pedidos y tickets
+- Auth (JWT + OAuth Google + email), perfil y direcciones
+- Panel admin por roles (`/gestion`), inventario, analítica y funnel
+- SEO base (meta, OG, sitemap, robots, JSON-LD), páginas legales
+- Frontend responsive: home, catálogo, producto, carrito, checkout, pedidos, legal
 
-- [ ] Catálogo de productos con variantes (talla, color) y estado de stock
-- [ ] Carrito de compra persistente con flujo completo hasta checkout
-- [ ] Integración de pagos con Mercado Pago (MXN)
-- [ ] Registro/login de clientes vía OAuth 2.0 con perfil completo (nombre, email, teléfono, dirección de envío, RFC opcional)
-- [ ] Generación de tickets de venta tras pago exitoso
-- [ ] Generación de tickets de envío vinculados al ticket de venta
-- [ ] Generación de tickets de producción on-demand cuando el stock no alcanza
-- [ ] Panel administrativo con roles: admin, ventas, envíos, producción
-- [ ] Gestión de inventario (stock actual, umbral bajo, estado por variante)
-- [ ] Gestión de diseños/catálogo por el equipo interno (subir imágenes, mockups, descripciones)
-- [ ] Frontend React responsive, con imágenes adaptables a formatos de publicidad Meta (1:1, 4:5, 9:16)
-- [ ] Backend Django REST API con SQLite para desarrollo local
-- [ ] Base de datos de analítica separada: cookies, tracking de visitas, fuente de tráfico (red social, directo, referral), funnel de conversión (visita → carrito → compra)
-- [ ] Sistema de envíos flexible sin proveedor fijo (campos manuales: guía, paquetería, costo, estatus)
+### Active (post-v1 / operación)
+
+- [ ] Deploy producción (hosting, PostgreSQL, media persistente S3/Cloudinary)
+- [ ] Email transaccional SMTP (confirmación de pedido, etc.)
+- [ ] Suite de tests automatizados (Django + frontend)
+- [ ] Validación en staging: flujo de pago MP end-to-end con credenciales de prueba
 
 ### Out of Scope
 
@@ -61,12 +57,12 @@ Un cliente puede encontrar una playera, pagarla con Mercado Pago y recibir un ti
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Mercado Pago como procesador de pagos | Único mercado es México, MP tiene la mayor penetración y soporta OXXO, tarjeta, SPEI | — Pending |
-| Django + React separados (API + SPA) | Permite escalar frontend y backend independientemente; React facilita formatos para Meta | — Pending |
-| SQLite para dev local | Simplicidad para desarrollo; migración a PostgreSQL en producción será directa con Django ORM | — Pending |
-| Base de datos de analítica separada | No mezclar datos transaccionales con tracking; permite consultas pesadas sin afectar la tienda | — Pending |
-| Sistema de envíos manual/flexible | No hay proveedor definido; el sistema debe permitir agregar cualquiera sin cambios de código | — Pending |
-| Modelo híbrido stock + on-demand | Negocio nuevo con poco capital; on-demand reduce riesgo de inventario muerto | — Pending |
+| Mercado Pago como procesador de pagos | Único mercado es México, MP tiene la mayor penetración y soporta OXXO, tarjeta, SPEI | Integrado v1.0; validar en prod |
+| Django + React separados (API + SPA) | Permite escalar frontend y backend independientemente; React facilita formatos para Meta | Entregado v1.0 |
+| SQLite para dev local | Simplicidad para desarrollo; migración a PostgreSQL en producción será directa con Django ORM | `prod.py` usa Postgres |
+| Base de datos de analítica separada | No mezclar datos transaccionales con tracking; permite consultas pesadas sin afectar la tienda | Router + DB `analytics` en dev |
+| Sistema de envíos manual/flexible | No hay proveedor definido; el sistema debe permitir agregar cualquiera sin cambios de código | Panel envíos v1.0 |
+| Modelo híbrido stock + on-demand | Negocio nuevo con poco capital; on-demand reduce riesgo de inventario muerto | Lógica en API + UI disponibilidad |
 
 ---
-*Last updated: 2026-03-27 after new-project questioning*
+*Last updated: 2026-03-28 — milestone v1.0 complete-milestone*

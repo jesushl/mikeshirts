@@ -2,6 +2,8 @@
 
 ## Milestone: v1.0 — Tienda Online Mike Shirts
 
+**Estado:** **COMPLETADO** — 2026-03-28 (`complete-milestone`). Backend fases 1–5 + frontend fases 6–8 ejecutadas.
+
 **5 phases** | **37 requirements** | All v1 requirements covered ✓
 
 ---
@@ -126,4 +128,4 @@
 6. Meta tags, Open Graph, responsive mobile-first verificado
 
 ---
-*Last updated: 2026-03-27 — frontend phases added after backend completion*
+*Last updated: 2026-03-28 — milestone v1.0 marked complete*
