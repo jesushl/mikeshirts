@@ -108,7 +108,7 @@ This project uses **learnship**. Key facts:
 
 **Milestone:** v1.0 — Tienda Online Mike Shirts
 **Phase:** 1 — Foundation & Auth
-**Status:** planning
+**Status:** planned — ready to execute
 **Last updated:** 2026-03-27
 
 ---
