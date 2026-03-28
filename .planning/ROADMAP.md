@@ -78,4 +78,52 @@
 6. Responsive mobile-first verificado en dispositivos reales
 
 ---
-*Last updated: 2026-03-27 after new-project roadmap approval*
+
+## Frontend Phases (backend API complete)
+
+### Phase 6 — Frontend Scaffold & Auth UI
+
+**Goal:** SPA React corriendo con Vite + Tailwind, conectada al backend API. Auth flow completo: login, register, perfil, direcciones, rutas protegidas.
+
+**Requirements:** FE-01 (base), AUTH-01..04 (UI)
+
+**Success criteria:**
+1. Vite + React + TypeScript + Tailwind + React Router + Zustand scaffoldeado
+2. API client con interceptors JWT (access en memory, refresh via cookie)
+3. Login/register funcionan y persisten sesión
+4. Mi Cuenta: editar perfil, gestionar direcciones
+5. Layout responsive: header con nav, footer, mobile menu
+
+---
+
+### Phase 7 — Catálogo, Producto & Carrito UI
+
+**Goal:** Cliente puede navegar el catálogo, ver un producto con variantes/stock/tallas, y gestionar su carrito.
+
+**Requirements:** CAT-05..07, CART-01..02, INV-03 (UI)
+
+**Success criteria:**
+1. Home con hero y productos destacados
+2. Catálogo con filtros (categoría, talla, color, precio), búsqueda, paginación
+3. Página de producto con galería, tabla de tallas, selector de variante, disponibilidad
+4. Carrito drawer con agregar/editar/eliminar, subtotal, envío, total
+5. Eventos de analítica enviados al backend (product_view, add_to_cart)
+
+---
+
+### Phase 8 — Checkout, Pedidos, Admin Panel & Polish
+
+**Goal:** Flujo de compra completo, panel admin por roles, páginas legales, SEO, responsive final.
+
+**Requirements:** CART-03..04, FE-01..05, ADM-01..04 (UI)
+
+**Success criteria:**
+1. Checkout 3 pasos: dirección → MP redirect → confirmación
+2. Páginas post-pago: success, failure, pending
+3. Mis pedidos + detalle con tickets y status
+4. Panel admin con dashboards por rol
+5. Páginas legales (envío, devoluciones, privacidad)
+6. Meta tags, Open Graph, responsive mobile-first verificado
+
+---
+*Last updated: 2026-03-27 — frontend phases added after backend completion*

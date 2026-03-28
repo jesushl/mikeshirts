@@ -18,8 +18,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     # Third-party
     'rest_framework',
+    'django_filters',
     'corsheaders',
     'oauth2_provider',
     'social_django',
@@ -28,6 +30,15 @@ INSTALLED_APPS = [
     'imagekit',
     # Local
     'apps.accounts',
+    'apps.catalog',
+    'apps.inventory',
+    'apps.cart',
+    'apps.orders',
+    'apps.shipping',
+    'apps.production',
+    'apps.payments',
+    'apps.admin_panel',
+    'apps.analytics',
 ]
 
 MIDDLEWARE = [
@@ -39,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'apps.analytics.middleware.AnalyticsMiddleware',
 ]
 
 ROOT_URLCONF = 'mike_shirts.urls'
@@ -103,6 +115,13 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ),
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+        'rest_framework.filters.OrderingFilter',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 12,
 }
 
 # --- JWT ---
@@ -150,3 +169,19 @@ SOCIAL_AUTH_INSTAGRAM_SECRET = os.environ.get('SOCIAL_AUTH_INSTAGRAM_SECRET', ''
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['email', 'profile']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {'fields': 'id,name,email'}
+
+# --- Shipping ---
+from decimal import Decimal  # noqa: E402
+SHIPPING_FLAT_RATE = Decimal('249.00')
+
+# --- Mercado Pago ---
+MERCADOPAGO_ACCESS_TOKEN = os.environ.get('MERCADOPAGO_ACCESS_TOKEN', '')
+SITE_URL = os.environ.get('SITE_URL', 'http://localhost:5173')
+MERCADOPAGO_NOTIFICATION_URL = os.environ.get(
+    'MERCADOPAGO_NOTIFICATION_URL',
+    'http://localhost:8000/api/payments/webhook/',
+)
+
+# --- Email ---
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'Mike Shirts <noreply@mikeshirts.mx>'

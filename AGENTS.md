@@ -107,9 +107,9 @@ This project uses **learnship**. Key facts:
 ## Current Phase
 
 **Milestone:** v1.0 — Tienda Online Mike Shirts
-**Phase:** 1 — Foundation & Auth
-**Status:** planned — ready to execute
-**Last updated:** 2026-03-27
+**Phase:** All 8 phases complete — full-stack done
+**Status:** v1.0 complete — Django API + React SPA, ready for QA/deploy
+**Last updated:** 2026-03-28
 
 ---
 
